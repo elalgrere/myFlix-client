@@ -63,24 +63,19 @@ export class MainView extends React.Component {
           Featured: true
         }
       ]
-      
-
-
-
-
-
-      ]
      }
     setSelectedMovie(newSelectedMovie) {
       this.setState({
         selectedMovie: newSelectedMovie
       });
     }
+    
     render() {
       const { movies, selectedMovie } = this.state;
-    
+  
+  
       if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
-    
+  
       return (
         <div className="main-view">
           {selectedMovie
@@ -92,3 +87,5 @@ export class MainView extends React.Component {
         </div>
       );
     }
+  
+  }
