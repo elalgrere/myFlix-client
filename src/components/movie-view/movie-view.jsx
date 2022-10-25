@@ -2,6 +2,23 @@ import React from 'react';
 
 export class MovieView extends React.Component {
 
+  keypressCallback(event) {
+    console.log(event.key);
+  }
+
+  componentDidMount(){
+    // code executed right after the component is added to the DOM.
+  }
+
+  componentDidUpdate(){
+    // code executed right after component's state or props are changed.
+  }
+
+  componentWillUnmount(){
+    // code executed just before the moment the component gets removed from the DOM.
+  }
+
+
   render() {
     const { movie, onBackClick } = this.props;
 
@@ -31,4 +48,6 @@ export class MovieView extends React.Component {
       </div>
     );
   }
-}
+} 
+
+
