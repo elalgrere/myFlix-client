@@ -20,4 +20,4 @@ console.log ('cot: ', container)
 const rootElement =ReactDOM.createRoot(container)
 
 // Tells React to render your app in the root DOM element
-rootElement.render(<myFlixApplication/>)
+rootElement.render(<MyFlixApplication/>)
