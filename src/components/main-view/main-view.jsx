@@ -5,7 +5,8 @@ import PropTypes from 'proptypes';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-
+import { RegistrationView } from '../regustration-view/registration-view';
+import { Button } from '../logout-button/logout-button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -18,8 +19,8 @@ export class MainView extends React.Component {
     this.state = {
       movies: [],
       selectedMovie: null,
-      user: null
-      
+      user: null,
+      registred: true
     };
   }
         
@@ -35,39 +36,76 @@ export class MainView extends React.Component {
       });
   }
   
-     
-  setSelectedMovie(movie) {
+    setSelectedMovie(movie) {
     this.setState({
       selectedMovie: movie
     });
   }
-  onLoggedIn(user) {
+    onLoggedIn(user) {
     this.setState({
       user
+    });
+  }
+    onRegister(registered, user) {
+    this.setState({
+      registered,
+      user,
+    });
+  }
+
+  logoutUser(uselessParam) {
+    this.setState({
+      user: false,
+      selectedMovie: null,
+    });
+  }
+
+  toRegistrationView(asdf) {
+    this.setState({
+      registered: false,
     });
   }
     render() {
       const { movies, selectedMovie, user } = this.state;
   
-  
+      if (!registered) return <RegistrationView onRegister={(registered, username) => this.onRegister(registered, username)}/>;
       if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
       if (movies.length === 0) return <div className="main-view" />;
   
       return (
-        <Row className="main-view justify-content-md-center">
-          {selectedMovie
-            ? (
+       
+         <div className='main-view'>
+          <Row>
+            <Col>
+             <LogoutButton
+              logoutUser={(uselessParam) => this.logoutUser(uselessParam)}
+             />
+            </Col>
+          </Row> 
+          
+          {selectedMovie ? (
+             <Row> 
               <Col md={8}>
                 <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
               </Col>
-            )
-            : movies.map(movie => (
+             </Row> 
+           
+            ): (
+          
+            <Row className='justify-content-md-center'>    
+             {movies.map(movie => (
               <Col md={3}>
                 <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
-              </Col>
+              </Col> 
             ))
           }
-        </Row>
-      );
-    }
-   }   
+          </Row>
+      )}
+      </div>   
+    );
+    } 
+   } 
+   
+MainView.propTypes = {};
+
+export default MainView; 
