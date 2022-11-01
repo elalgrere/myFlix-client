@@ -1,12 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'proptypes';
+import PropTypes from 'prop-types';
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from '../regustration-view/registration-view';
-import { Button } from '../logout-button/logout-button';
+import { Button } from '../button/button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -48,7 +48,7 @@ export class MainView extends React.Component {
   }
     onRegister(registered, user) {
     this.setState({
-      registered,
+      registred,
       user,
     });
   }
@@ -62,13 +62,13 @@ export class MainView extends React.Component {
 
   toRegistrationView(asdf) {
     this.setState({
-      registered: false,
+      registred: false,
     });
   }
     render() {
-      const { movies, selectedMovie, user } = this.state;
+      const { movies, selectedMovie, user, registred } = this.state;
   
-      if (!registered) return <RegistrationView onRegister={(registered, username) => this.onRegister(registered, username)}/>;
+      if (!registred) return <RegistrationView onRegister={(registred, username) => this.onRegister(registred, username)}/>;
       if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
       if (movies.length === 0) return <div className="main-view" />;
   
