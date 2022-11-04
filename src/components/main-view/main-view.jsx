@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { RegistrationView } from '../regustration-view/registration-view';
+import { RegistrationView } from '../registration-view/registration-view';
 import { Button } from '../button/button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -77,7 +77,7 @@ export class MainView extends React.Component {
          <div className='main-view'>
           <Row>
             <Col>
-             <LogoutButton
+             <Button
               logoutUser={(uselessParam) => this.logoutUser(uselessParam)}
              />
             </Col>
