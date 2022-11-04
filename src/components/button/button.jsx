@@ -18,7 +18,7 @@ export function Button(props) {
 }
 
 //prop-types
-// give informational warnings in browser if data does not match required shape
+//give informational warnings in browser if data does not match required shape
 Button.proptypes = {
   logoutUser: PropTypes.func.isRequired,
 };

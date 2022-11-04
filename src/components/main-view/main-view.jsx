@@ -80,7 +80,7 @@ export class MainView extends React.Component {
          <div className='main-view'>
           <Row>
             <Col>
-             <LogoutButton
+             <Button
               logoutUser={(uselessParam) => this.logoutUser(uselessParam)}
              />
             </Col>
