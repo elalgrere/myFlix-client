@@ -19,51 +19,21 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
       
-    return (
-      <Row className='movie-view'>
-        <Col lg={8}>
-          <div className='movie-view__title-line'>
-            <Button
-              className='movie-view-button'
-              onClick={() => {
-                onBackClick(null);
-              }}
-            >
-       </Button>
-            <span className='movie-view__title'> {movie.Title} </span>
-            <Button className='movie-view-button'>&#10032;</Button>
-          </div>
-
-          <div className='movie-info'>
-            <div className='movie-view__line'>
-              <span className='movie-view__line__label'>Genre: </span>
-              <span className='movie-view__line__value'>
-                {movie.Genre.Name}
-              </span>
-            </div>
-
-            <div className='movie-view__line'>
-              <span className='movie-view__line__label'>Director: </span>
-              <span className='movie-view__line__value'>
-                {movie.Director.Name}
-              </span>
-            </div>
-
-            <div className='movie-view__line description'>
-              <span className='movie-view__line__label'>Description: </span>
-              <span className='movie-view__line__value'>
-                {movie.Description}
-              </span>
-            </div>
-          </div>
-        </Col>
-
-        <Col lg={4}>
-          <div className='movie-poster'>
-            <img src={movie.ImagePath} />
-          </div>
-        </Col>
-      </Row>
+    rreturn (
+      <div className="main-view">
+        {selectedMovie
+          ? (
+            <Row className="justify-content-md-center">
+              <Col md={8}>
+                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+              </Col>
+            </Row>
+          )
+          : movies.map(movie => (
+            <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+          ))
+        }
+      </div>
     );
   }
 }
