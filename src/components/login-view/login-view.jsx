@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {Form, Button, Card, Col, Row } from 'react-bootstrap/Form';
+import {Form, Button} from 'react-bootstrap/Form';
 
 
 import './login-view.scss';
@@ -29,21 +29,14 @@ const validate = () => {
 
   return isReq;
 }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    /* Send a request to the server for authentication */
-    axios.post('https://dashboard.heroku.com/apps/myflixmoviesapp/login', {
-      Username: username,
-      Password: password
-    })
-    .then(response => {
-      const data = response.data;
-      props.onLoggedIn(data);
-    })
-    .catch(e => {
-      console.log('no such user')
-    });
-  };
+const handleSubmit = (e) => {
+  e.preventDefault();
+  console.log(username, password);
+  /* Send a request to the server for authentication */
+  /* then call props.onLoggedIn(username), which provides the username to our parent component (child to parent communication) */
+  props.onLoggedIn(username)
+};
+
 
   return (
     <Form>
