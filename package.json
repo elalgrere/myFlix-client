@@ -19,7 +19,11 @@
   },
   "homepage": "https://github.com/elalgrere/myFlix-client#readme",
   "dependencies": {
+    "@parcel/runtime-browser-hmr": "^2.8.0",
     "axios": "^1.1.3",
+    "bootstrap": "^5.2.2",
+    "container": "^0.0.2",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -27,6 +31,8 @@
     "react-router-dom": "^5.3.4"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.2.0-rc.0"
+    "@parcel/transformer-sass": "^2.8.0",
+    "buffer": "^5.7.1",
+    "process": "^0.11.10"
   }
 }

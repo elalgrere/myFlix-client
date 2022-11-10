@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 
-export function NavBar({ user }) {
+export function Menubar({ user }) {
   const onLoggedOut = () => {
     localStorage.clear();
     window.open('/', '_self');
@@ -27,36 +27,23 @@ export function NavBar({ user }) {
       variant="dark"
     >
       <Container>
-        <Navbar.Brand className="navbar-logo" as={Link} to="/">
-          myFlix
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Brand className="navbar-logo" 
+        href='/'>myFlixCinema</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />        
+          <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className="mal-auto">
             {isAuth() && (
-              <Nav.Link as={Link} to={`/users/${user}`}>
-                {user}
-              </Nav.Link>
+              <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>
             )}
             {isAuth() && (
-              <Button
-                variant="link"
-                onClick={() => {
-                  onLoggedOut();
-                }}
-              >
-                Logout
-              </Button>
+                <Button variant='link' onClick={() =>
+                  { this.onLoggedOut() }}>Logout</Button>
             )}
             {!isAuth() && (
-              <Nav.Link as={Link} to="/">
-                Login
-              </Nav.Link>
+              <Nav.Link href='/'>Sing-in</Nav.Link>
             )}
             {!isAuth() && (
-              <Nav.Link as={Link} to="/register">
-                Sign Up
-              </Nav.Link>
+              <Nav.Link href='/register'>Sign-up</Nav.Link>
             )}
           </Nav>
         </Navbar.Collapse>

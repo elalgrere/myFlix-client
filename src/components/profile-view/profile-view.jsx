@@ -1,14 +1,14 @@
 import React, { useEffect, useState, } from 'react';
 import { Container, Col, Row , Card} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import Button from 'react-ootstrap/Button';
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import './profile-view.scss';
 import axios from 'axios';
 import UserInfo from './user-info';
 import FavoriteMovies from './favorite-movies';
-import UpdateUser from './updtae-user';
+import UpdateUser from './update-user';
 
 export function ProfileView({ movies }) {
 

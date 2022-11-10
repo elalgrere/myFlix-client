@@ -39,4 +39,4 @@ return (
 )
 }
 
-export default Favorite-movies
+//export default Favorite-movies
