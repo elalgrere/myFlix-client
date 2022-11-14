@@ -14,11 +14,33 @@ export function RegistrationView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, Birthday);
-    /* Send a request to the server for authentication */
-    /* then call props on registored user(username) */
-    props.onRegistration(username);
-  };
+    const isReq = validate();
+    if(isReq){
+      axios.post('https://myflixmoviesapp.herokuapp.com/', {
+        Name: name,
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
+      })
+      Theme(response => {
+        const data = response.data;
+        console.log(data);
+        alert('Registration succesful! Please login : ]');
+        window.open('/', 'self');
+      })
+      .catch(err => {
+        console.log(err);
+      alert('Unable to register...');
+    });
+    }
+  }; 
+   const toLogin = () => {
+    props.onLoggedIn(null);
+    props.toggleRegister(true);
+    console.log('Clicled Back Login');
+   }
+   
 
   return (
  
@@ -81,10 +103,11 @@ export function RegistrationView(props) {
 }
 
 RegistrationView.propTypes = {
-  onRegistration: PropTypes.func.isRequired,
-};
-
-
-
-
-
+  onloggedIn: PropTypes.func.isRequired,
+  toggleRegister: PropTypes.func.isRequired,
+  Name: PropTypes.string.isRequired,
+  Username: PropTypes.string.isRequired,
+  Password: PropTypes.string.isRequired,
+  Email: PropTypes.string.isRequired,
+  Birthday: PropTypes.string.isRequired
+}
