@@ -157,22 +157,7 @@ export class MainView extends React.Component {
             onBackClick={() => history.goBack()} />
             </Col>
            }} />
-
-            <Route path={`/users/${user}`}
-            render={({ history}) => {
-            if (!user) return <Redirect to='/'  />;
-            if (user.length === 0) return <div className='main-view'>Loading...</div>;
-            if (movies.length ===0) return <div className='main-view'>Loading...</div>;
-            return (
-              <ProfileView
-              movies={movies}
-              user={user}
-              onBackClick={() => history.goBack()}
-            />
-            );
-            }}
-           />
-        </Row>
+         </Row>
       </Router>
           );
   }
