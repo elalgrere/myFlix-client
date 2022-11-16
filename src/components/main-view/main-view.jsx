@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 
 
 import './main-view.scss';
+import { connected } from 'process';
 
 export class MainView extends React.Component {
 
@@ -111,6 +112,7 @@ export class MainView extends React.Component {
   }
 
 }
+export default connected(mapStoreToProps, null)(MainView);
 
 
 
