@@ -2,30 +2,25 @@ import React from 'react';
 import axios from 'axios';
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
-//import { MovieCard } from '../movie-card/movie-card';
-import { MovieView } from '../movie-view/movie-view';
-import { RegistrationView } from '../registration-view/registration-view';
 import { DirectorView } from '../director-view/director-view';
-import { GenreView } from '../movie-view/movie-view';
+import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
-import { Col, Row} from 'react-bootstrap/Row';
+import { Col, Row} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
-import { setMovies } from '../../actions/actions';
-
 import { setMovies } from '../../actions/actions';
 
 import MoviesList from '../movies-list/movies-list';
 import './main-view.scss';
 
 
-ReactDOM.createRoot( document.getElementById('root')).render(
+/*ReactDOM.createRoot( document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
     <MainView/>
     </BrowserRouter>
   </React.StrictMode>
-);
+);*/
 export class MainView extends React.Component {
 
   constructor(){
